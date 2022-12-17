@@ -38,7 +38,6 @@ def user_exists():
         @wraps(function_current)
         def __user_exists(*args, **kwargs):
             user = request.get_json()
-
             search = mongo_client.users.find_one({"email": user['email']})
 
             if not search:
@@ -52,7 +51,6 @@ def required_fields(fields: list):
         @wraps(function_current)
         def __required_fields(*args, **kwargs):
             body = request.get_json()
-
             faul = False
             campos = []
             for field in fields:

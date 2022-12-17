@@ -7,7 +7,6 @@ def item_exists():
         @wraps(function_current)
         def __item_exists(*args, **kwargs):
             item = request.get_json()
-
             search = mongo_client.items.find_one({"patrimonio": item['patrimonio']})
 
             if not search:

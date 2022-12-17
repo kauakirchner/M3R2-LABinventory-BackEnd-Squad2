@@ -5,7 +5,7 @@ import requests
 from bson import json_util
 from flask import Blueprint
 from flask.wrappers import Response
-from flask import request, jsonify, current_app
+from flask import request, current_app
 from flask.globals import session
 from google import auth
 from google.oauth2 import id_token
@@ -73,9 +73,7 @@ def insert_user():
 @has_logged()
 def delete_all():
     mongo_client.users.delete_many({})
-
     return {"sucesso": "Usuários limpos com sucesso"}, 200
-
 
 @users.route("/login", methods=["POST"])
 @has_not_logged()
