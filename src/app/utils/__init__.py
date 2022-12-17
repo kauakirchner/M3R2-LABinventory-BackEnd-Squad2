@@ -10,7 +10,6 @@ mongo = client = MongoClient(os.getenv("MONGO_URI"), tls=True, tlsCAFile=certifi
 
 def generate_jwt(payload):
     token = encode(payload, current_app.config["SECRET_KEY"], "HS256")
-
     return token
 
 def set_password(password):
