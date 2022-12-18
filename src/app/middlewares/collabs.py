@@ -7,7 +7,6 @@ def collab_exists():
         @wraps(function_current)
         def __collab_exists(*args, **kwargs):
             collab = request.get_json()
-
             search = mongo_client.collabs.find_one({"email": collab['email']})
 
             if not search:
