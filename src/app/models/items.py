@@ -2,7 +2,7 @@ def create_collection_items(mongo_client):
     items_validator = {
         "$jsonSchema": {
             "bsonType": "object",
-            "required": ["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "url"],
+            "required": ["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "image"],
             "properties": {
                 "_id": {
                   "bsonType": "objectId",
@@ -24,9 +24,9 @@ def create_collection_items(mongo_client):
                   "bsonType": "number",
                   "description": "Valor em reais",
                 },
-                "url": {
+                "image": {
                   "bsonType": "string",
-                  "description": "url da imagem"
+                  "description": "Imagem do item"
                 },
                 "marca": {
                   "bsonType": "string",
