@@ -50,7 +50,7 @@ def get_one_collab():
 
 @collabs.route("/", methods=["POST"])
 @has_logged()
-@required_fields(['nome', 'genero', 'nascimento', 'telefone', 'bairro', 'cargo', 'cep', 'email', 'localidade', 'logradouro', 'numero', 'uf'])
+@required_fields(['nome', "foto", 'genero', 'nascimento', 'telefone', 'bairro', 'cargo', 'cep', 'email', 'localidade', 'logradouro', 'numero', 'uf'])
 @collab_exists()
 def insert_collabs():
     try:

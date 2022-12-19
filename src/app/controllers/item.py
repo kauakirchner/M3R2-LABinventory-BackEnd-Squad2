@@ -35,7 +35,7 @@ def get_all_items():
 
 @items.route("/", methods=["POST"])
 @has_logged()
-@required_fields(["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "url"])
+@required_fields(["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "image"])
 @item_exists()
 def insert_item():
     item = request.get_json()
@@ -62,7 +62,7 @@ def delete_item(patr):
 
 @items.route("/", methods=["PATCH"])
 @has_logged()
-@required_fields(["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "url"])
+@required_fields(["patrimonio", "titulo", "categoria", "valor", "marca", "modelo", "descricao", "image"])
 def edit_item():
     id_item = request.args.get("_id")
     new_item = request.get_json()
@@ -74,7 +74,7 @@ def edit_item():
                         "titulo": new_item['titulo'],
                         "categoria": new_item['categoria'],
                         "valor": new_item['valor'],
-                        "url": new_item['url'],
+                        "image": new_item['image'],
                         "marca": new_item['marca'],
                         "modelo": new_item['modelo'],
                         "descricao": new_item['descricao'],
