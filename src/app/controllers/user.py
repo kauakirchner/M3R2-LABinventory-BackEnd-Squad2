@@ -45,7 +45,7 @@ def get_all_users():
 
 
 @users.route("/create", methods=["POST"])
-@required_fields(["name", "email", "password"])
+@required_fields(["name", "photo", "email", "password"])
 @user_exists()
 def insert_user():
     try:
