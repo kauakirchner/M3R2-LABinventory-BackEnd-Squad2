@@ -45,7 +45,7 @@ def get_all_users():
 
 
 @users.route("/create", methods=["POST"])
-@required_fields(["name", "photo", "email", "password"])
+@required_fields(["name", "image", "email", "password"])
 @user_exists()
 def insert_user():
     try:
@@ -54,7 +54,8 @@ def insert_user():
             payload = {
                 "name": user['name'],
                 "email": user["email"],
-                "password": set_password(user["password"])
+                "password": set_password(user["password"]),
+                "image": user["image"]
             }
 
             mongo_client.users.insert_one(payload)

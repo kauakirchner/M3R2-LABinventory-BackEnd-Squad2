@@ -6,7 +6,7 @@ def create_collection_users(mongo_client):
           "required": [ 
             "_id",
             "name",
-            "photo",
+            "image",
             "email",
             "password"
           ],
@@ -17,7 +17,7 @@ def create_collection_users(mongo_client):
               "maxLength": 40,
               "description": "Nome deve ser uma string maior que 3 caracteres e menor que 40"
             },
-            "photo": {
+            "image": {
               "bsonType": "string",
               "description": "Foto do perfil do usuário"
             },
